@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+   <h3>Debouncing in javascript</h3>
+   <input type="text" id="input"> <!-- type in this text box if api calls occurs -->
+<script>
+    const input=document.getElementById("input");
+
+    input.addEventListener("keyup", function(){
+     getDatafromApi();
+    })
+
+    const getDatafromApi=()=>{
+       console.log("getting data")
+    }
+</script>
+
+
+</body>
+</html>

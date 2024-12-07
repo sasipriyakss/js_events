@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model</title>
+
+    <style>
+        #modal{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            top: 0;
+            left: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+        }
+        #modalcontent{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <button id="btnModal">Open Model</button>
+
+    <div id="modal">
+        <div id="modalcontent">
+            <h2>Modal Heading</h2>
+            <p>This is a modal for bubbling</p>
+            <input type="text" placeholder="name" id="txtName">
+            <button id="btnSubmit">submit</button>
+        </div>
+    </div>
+<script>
+    const btnModal=document.querySelector('#btnModal');
+    const modal =document.querySelector('#modal');
+    const btnSubmit=document.querySelector('#btnSubmit');
+    const txtName=document.querySelector('#txtName');
+    const modalcontent=document.querySelector('#modalcontent');
+    btnModal.addEventListener("click",function()
+{
+    modal.style.display="flex";
+});
+
+// when i touch the anywhere in the screen the model content automatically close it happends because of event bubbling 
+modal.addEventListener("click",function()  
+{
+    modal.style.display="none";
+});
+
+
+btnSubmit.addEventListener("click",function(e){
+    e.stopPropagation();
+});
+
+txtName.addEventListener("click",function(e){
+    e.stopPropagation();
+});
+
+modalcontent.addEventListener("click",function(e)
+{
+    e.stopPropagation();
+})
+
+</script>    
+</body>
+</html>
